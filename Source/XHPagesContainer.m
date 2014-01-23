@@ -29,8 +29,10 @@
         CGRect contentTableViewControllerFrame = CGRectMake(i * CGRectGetWidth(self.view.bounds), 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
         XHContentTableViewController *contentTableViewController = [[XHContentTableViewController alloc] init];
         contentTableViewController.view.frame = contentTableViewControllerFrame;
+        [self willMoveToParentViewController:contentTableViewController];
         [self addChildViewController:contentTableViewController];
         [_scrollView addSubview:contentTableViewController.view];
+        [self didMoveToParentViewController:contentTableViewController];
     }
     [self.view addSubview:self.scrollView];
 }
