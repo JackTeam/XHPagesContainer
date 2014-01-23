@@ -29,6 +29,12 @@
         tableView.delegate = self;
         tableView.dataSource = self;
         [_scrollView addSubview:tableView];
+        if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 7.0) {
+            UIEdgeInsets contentInset = tableView.contentInset;
+            contentInset.top = 64;
+            tableView.contentInset = contentInset;
+            tableView.scrollIndicatorInsets = contentInset;
+        }
     }
     [self.view addSubview:self.scrollView];
 }
@@ -52,6 +58,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self _setupContainer];
+    if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)])
+        self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)didReceiveMemoryWarning

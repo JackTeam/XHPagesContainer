@@ -19,6 +19,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)])
+        [self.navigationController.navigationBar setBarTintColor:[UIColor redColor]];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, 200, 200);
     button.center = self.view.center;
