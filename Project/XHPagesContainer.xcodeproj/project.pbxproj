@@ -21,6 +21,7 @@
 		AB49473B1891AF5100110650 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB4947391891AF5100110650 /* InfoPlist.strings */; };
 		AB49473D1891AF5100110650 /* XHPagesContainerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49473C1891AF5100110650 /* XHPagesContainerTests.m */; };
 		AB4947491891AF8C00110650 /* XHPagesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4947481891AF8C00110650 /* XHPagesContainer.m */; };
+		AB49474C1891B95200110650 /* XHContentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49474B1891B95200110650 /* XHContentTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		AB49473C1891AF5100110650 /* XHPagesContainerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XHPagesContainerTests.m; sourceTree = "<group>"; };
 		AB4947471891AF8C00110650 /* XHPagesContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPagesContainer.h; sourceTree = "<group>"; };
 		AB4947481891AF8C00110650 /* XHPagesContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPagesContainer.m; sourceTree = "<group>"; };
+		AB49474A1891B95200110650 /* XHContentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHContentTableViewController.h; sourceTree = "<group>"; };
+		AB49474B1891B95200110650 /* XHContentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHContentTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +161,8 @@
 			children = (
 				AB4947471891AF8C00110650 /* XHPagesContainer.h */,
 				AB4947481891AF8C00110650 /* XHPagesContainer.m */,
+				AB49474A1891B95200110650 /* XHContentTableViewController.h */,
+				AB49474B1891B95200110650 /* XHContentTableViewController.m */,
 			);
 			name = Source;
 			path = ../Source;
@@ -259,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB49474C1891B95200110650 /* XHContentTableViewController.m in Sources */,
 				AB4947491891AF8C00110650 /* XHPagesContainer.m in Sources */,
 				AB4947281891AF5000110650 /* ViewController.m in Sources */,
 				AB49471F1891AF5000110650 /* AppDelegate.m in Sources */,

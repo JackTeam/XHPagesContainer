@@ -7,8 +7,9 @@
 //
 
 #import "XHPagesContainer.h"
+#import "XHContentTableViewController.h"
 
-@interface XHPagesContainer () <UITableViewDelegate, UITableViewDataSource>
+@interface XHPagesContainer ()
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 
@@ -23,18 +24,11 @@
     _scrollView.pagingEnabled = YES;
     _scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.bounds) * 3, CGRectGetHeight(self.view.bounds));
     for (int i = 0; i < 3; i ++) {
-        CGRect tableViewFrame = self.view.bounds;
-        tableViewFrame.origin.x = i * CGRectGetWidth(self.view.bounds);
-        UITableView *tableView = [[UITableView alloc] initWithFrame:tableViewFrame style:UITableViewStylePlain];
-        tableView.delegate = self;
-        tableView.dataSource = self;
-        [_scrollView addSubview:tableView];
-        if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 7.0) {
-            UIEdgeInsets contentInset = tableView.contentInset;
-            contentInset.top = 64;
-            tableView.contentInset = contentInset;
-            tableView.scrollIndicatorInsets = contentInset;
-        }
+        CGRect contentTableViewControllerFrame = CGRectMake(i * CGRectGetWidth(self.view.bounds), 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
+        XHContentTableViewController *contentTableViewController = [[XHContentTableViewController alloc] init];
+        contentTableViewController.view.frame = contentTableViewControllerFrame;
+        [self addChildViewController:contentTableViewController];
+        [_scrollView addSubview:contentTableViewController.view];
     }
     [self.view addSubview:self.scrollView];
 }
@@ -66,23 +60,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - TableView DataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 100;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"cellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    cell.textLabel.text = @"测试";
-    
-    return cell;
 }
 
 @end
