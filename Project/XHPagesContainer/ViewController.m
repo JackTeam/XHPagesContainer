@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "XHPagesContainer.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 0, 200, 200);
+    button.center = self.view.center;
+    [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"打开" forState:UIControlStateNormal];
+    [self.view addSubview:button];
+}
+
+- (void)buttonClick {
+    [self.navigationController pushViewController:[[XHPagesContainer alloc] init] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
