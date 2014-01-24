@@ -101,6 +101,7 @@
 - (void)_setup {
     self.showsHorizontalScrollIndicator = NO;
     self.showsVerticalScrollIndicator = NO;
+    [self setScrollsToTop:NO];
 }
 
 - (id)init {
