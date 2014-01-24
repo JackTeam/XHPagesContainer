@@ -29,6 +29,7 @@
 		AB65E6F11891EDCF00064C67 /* tabBar-camera-on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB65E6ED1891EDCF00064C67 /* tabBar-camera-on@2x.png */; };
 		AB65E6F21891EDCF00064C67 /* tabBar-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = AB65E6EE1891EDCF00064C67 /* tabBar-camera.png */; };
 		AB65E6F31891EDCF00064C67 /* tabBar-camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB65E6EF1891EDCF00064C67 /* tabBar-camera@2x.png */; };
+		AB65E6F71891EE8300064C67 /* XHFoundCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = AB65E6F61891EE8300064C67 /* XHFoundCommon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		AB65E6ED1891EDCF00064C67 /* tabBar-camera-on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar-camera-on@2x.png"; sourceTree = "<group>"; };
 		AB65E6EE1891EDCF00064C67 /* tabBar-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar-camera.png"; sourceTree = "<group>"; };
 		AB65E6EF1891EDCF00064C67 /* tabBar-camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar-camera@2x.png"; sourceTree = "<group>"; };
+		AB65E6F51891EE8200064C67 /* XHFoundCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHFoundCommon.h; sourceTree = "<group>"; };
+		AB65E6F61891EE8300064C67 /* XHFoundCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHFoundCommon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,7 @@
 				AB4947481891AF8C00110650 /* XHPagesContainer.m */,
 				AB49474A1891B95200110650 /* XHContentTableViewController.h */,
 				AB49474B1891B95200110650 /* XHContentTableViewController.m */,
+				AB65E6F41891EE6200064C67 /* XHFoundCommon */,
 				AB65E6E21891ECF600064C67 /* XHItemScrollToolBar */,
 			);
 			name = Source;
@@ -201,6 +205,15 @@
 				AB65E6E81891ED0000064C67 /* XHItemView.m */,
 			);
 			name = XHItemScrollToolBar;
+			sourceTree = "<group>";
+		};
+		AB65E6F41891EE6200064C67 /* XHFoundCommon */ = {
+			isa = PBXGroup;
+			children = (
+				AB65E6F51891EE8200064C67 /* XHFoundCommon.h */,
+				AB65E6F61891EE8300064C67 /* XHFoundCommon.m */,
+			);
+			name = XHFoundCommon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB65E6E91891ED0000064C67 /* XHItem.m in Sources */,
+				AB65E6F71891EE8300064C67 /* XHFoundCommon.m in Sources */,
 				AB65E6EB1891ED0000064C67 /* XHItemView.m in Sources */,
 				AB49474C1891B95200110650 /* XHContentTableViewController.m in Sources */,
 				AB4947491891AF8C00110650 /* XHPagesContainer.m in Sources */,

@@ -21,12 +21,10 @@
     tableView.dataSource = self;
     [tableView setScrollsToTop:NO];
     [self.view addSubview:tableView];
-    if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 7.0) {
-        UIEdgeInsets contentInset = tableView.contentInset;
-        contentInset.top = 64;
-        tableView.contentInset = contentInset;
-        tableView.scrollIndicatorInsets = contentInset;
-    }
+    UIEdgeInsets contentInset = tableView.contentInset;
+    contentInset.top = self.tableViewContenInsetTop;
+    tableView.contentInset = contentInset;
+    tableView.scrollIndicatorInsets = contentInset;
 }
 
 #pragma mark - Life cycle

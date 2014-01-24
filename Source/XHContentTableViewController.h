@@ -10,4 +10,5 @@
 
 @interface XHContentTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, assign) CGFloat tableViewContenInsetTop;
 @end

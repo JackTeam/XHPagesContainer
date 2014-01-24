@@ -13,6 +13,8 @@
 
 #import "XHItemScrollToolBar.h"
 
+#import "XHFoundCommon.h"
+
 @interface XHPagesContainer ()
 
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -30,6 +32,7 @@
     for (int i = 0; i < 3; i ++) {
         CGRect contentTableViewControllerFrame = CGRectMake(i * CGRectGetWidth(self.view.bounds), 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
         XHContentTableViewController *contentTableViewController = [[XHContentTableViewController alloc] init];
+        contentTableViewController.tableViewContenInsetTop = kXHItemScrollToolBarHeight + [XHFoundCommon getAdapterHeight];
         contentTableViewController.view.frame = contentTableViewControllerFrame;
         [self willMoveToParentViewController:contentTableViewController];
         [self addChildViewController:contentTableViewController];
@@ -49,7 +52,7 @@
         [items addObject:item];
     }
     
-    XHItemScrollToolBar *itemScrollToolBarToMid = [[XHItemScrollToolBar alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.bounds), kXHItemScrollToolBarHeight)];
+    XHItemScrollToolBar *itemScrollToolBarToMid = [[XHItemScrollToolBar alloc] initWithFrame:CGRectMake(0, [XHFoundCommon getAdapterHeight], CGRectGetWidth(self.view.bounds), kXHItemScrollToolBarHeight)];
     itemScrollToolBarToMid.itemWidth = CGRectGetWidth([[UIScreen mainScreen] bounds]) / 5.0;
     itemScrollToolBarToMid.items = items;
     [self.view addSubview:itemScrollToolBarToMid];
