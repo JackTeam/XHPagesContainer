@@ -19,6 +19,7 @@
     UITableView *tableView = [[UITableView alloc] initWithFrame:tableViewFrame style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
+    [tableView setScrollsToTop:NO];
     [self.view addSubview:tableView];
     if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 7.0) {
         UIEdgeInsets contentInset = tableView.contentInset;
@@ -50,11 +51,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSLog(@"viewWillAppear");
+    [self.tableView setScrollsToTop:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     NSLog(@"viewWillDisappear");
+    [self.tableView setScrollsToTop:NO];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
