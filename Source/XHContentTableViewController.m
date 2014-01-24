@@ -49,13 +49,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSLog(@"viewWillAppear");
-    [self.tableView setScrollsToTop:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     NSLog(@"viewWillDisappear");
-    [self.tableView setScrollsToTop:NO];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

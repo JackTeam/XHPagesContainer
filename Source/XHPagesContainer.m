@@ -15,7 +15,7 @@
 
 #import "XHFoundCommon.h"
 
-@interface XHPagesContainer ()
+@interface XHPagesContainer () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 
@@ -27,8 +27,10 @@
 
 - (void)_setupContainer {
     _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    _scrollView.delegate = self;
     _scrollView.pagingEnabled = YES;
     _scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.bounds) * 3, CGRectGetHeight(self.view.bounds));
+    [_scrollView setScrollsToTop:NO];
     for (int i = 0; i < 3; i ++) {
         CGRect contentTableViewControllerFrame = CGRectMake(i * CGRectGetWidth(self.view.bounds), 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
         XHContentTableViewController *contentTableViewController = [[XHContentTableViewController alloc] init];
@@ -87,6 +89,24 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UIScrollView delegate
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    // 刚开始滑动
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    // 滑动后，刚开始松手
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    // 正在滚动
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    // 这里可以对scrollView刚松手的其他参数
 }
 
 @end
