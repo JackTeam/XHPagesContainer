@@ -11,6 +11,8 @@
 #import "XHPagesContainer.h"
 #import "XHContentTableViewController.h"
 
+#import "XHItemScrollToolBar.h"
+
 @interface XHPagesContainer ()
 
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -37,6 +39,23 @@
     [self.view addSubview:self.scrollView];
 }
 
+- (void)_setupTopScrollBar {
+    NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:5];
+    for (int i = 0; i < 10; i ++) {
+        XHItem *item = [[XHItem alloc] initWithNormalImage:[UIImage imageNamed:@"tabBar-camera"] selectedImage:[UIImage imageNamed:@"tabBar-camera-on"] title:@"title5" itemSelectedBlcok:^(XHItemView *itemView) {
+            NSInteger index = itemView.item.index;
+            NSLog(@"index : %d", index);
+        }];
+        [items addObject:item];
+    }
+    
+    XHItemScrollToolBar *itemScrollToolBarToMid = [[XHItemScrollToolBar alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.bounds), kXHItemScrollToolBarHeight)];
+    itemScrollToolBarToMid.itemWidth = CGRectGetWidth([[UIScreen mainScreen] bounds]) / 5.0;
+    itemScrollToolBarToMid.items = items;
+    [self.view addSubview:itemScrollToolBarToMid];
+    [itemScrollToolBarToMid reloadData];
+}
+
 #pragma mark - Life cycle
 
 - (void)_setup {
@@ -56,6 +75,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self _setupContainer];
+    [self _setupTopScrollBar];
     if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)])
         self.automaticallyAdjustsScrollViewInsets = NO;
 }

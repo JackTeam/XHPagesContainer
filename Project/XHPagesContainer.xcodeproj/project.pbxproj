@@ -22,6 +22,13 @@
 		AB49473D1891AF5100110650 /* XHPagesContainerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49473C1891AF5100110650 /* XHPagesContainerTests.m */; };
 		AB4947491891AF8C00110650 /* XHPagesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4947481891AF8C00110650 /* XHPagesContainer.m */; };
 		AB49474C1891B95200110650 /* XHContentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49474B1891B95200110650 /* XHContentTableViewController.m */; };
+		AB65E6E91891ED0000064C67 /* XHItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB65E6E41891ED0000064C67 /* XHItem.m */; };
+		AB65E6EA1891ED0000064C67 /* XHItemScrollToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AB65E6E61891ED0000064C67 /* XHItemScrollToolBar.m */; };
+		AB65E6EB1891ED0000064C67 /* XHItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB65E6E81891ED0000064C67 /* XHItemView.m */; };
+		AB65E6F01891EDCF00064C67 /* tabBar-camera-on.png in Resources */ = {isa = PBXBuildFile; fileRef = AB65E6EC1891EDCF00064C67 /* tabBar-camera-on.png */; };
+		AB65E6F11891EDCF00064C67 /* tabBar-camera-on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB65E6ED1891EDCF00064C67 /* tabBar-camera-on@2x.png */; };
+		AB65E6F21891EDCF00064C67 /* tabBar-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = AB65E6EE1891EDCF00064C67 /* tabBar-camera.png */; };
+		AB65E6F31891EDCF00064C67 /* tabBar-camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB65E6EF1891EDCF00064C67 /* tabBar-camera@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +64,16 @@
 		AB4947481891AF8C00110650 /* XHPagesContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPagesContainer.m; sourceTree = "<group>"; };
 		AB49474A1891B95200110650 /* XHContentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHContentTableViewController.h; sourceTree = "<group>"; };
 		AB49474B1891B95200110650 /* XHContentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHContentTableViewController.m; sourceTree = "<group>"; };
+		AB65E6E31891ED0000064C67 /* XHItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHItem.h; sourceTree = "<group>"; };
+		AB65E6E41891ED0000064C67 /* XHItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHItem.m; sourceTree = "<group>"; };
+		AB65E6E51891ED0000064C67 /* XHItemScrollToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHItemScrollToolBar.h; sourceTree = "<group>"; };
+		AB65E6E61891ED0000064C67 /* XHItemScrollToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHItemScrollToolBar.m; sourceTree = "<group>"; };
+		AB65E6E71891ED0000064C67 /* XHItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHItemView.h; sourceTree = "<group>"; };
+		AB65E6E81891ED0000064C67 /* XHItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHItemView.m; sourceTree = "<group>"; };
+		AB65E6EC1891EDCF00064C67 /* tabBar-camera-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar-camera-on.png"; sourceTree = "<group>"; };
+		AB65E6ED1891EDCF00064C67 /* tabBar-camera-on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar-camera-on@2x.png"; sourceTree = "<group>"; };
+		AB65E6EE1891EDCF00064C67 /* tabBar-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar-camera.png"; sourceTree = "<group>"; };
+		AB65E6EF1891EDCF00064C67 /* tabBar-camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar-camera@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +147,10 @@
 		AB4947151891AF5000110650 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AB65E6EC1891EDCF00064C67 /* tabBar-camera-on.png */,
+				AB65E6ED1891EDCF00064C67 /* tabBar-camera-on@2x.png */,
+				AB65E6EE1891EDCF00064C67 /* tabBar-camera.png */,
+				AB65E6EF1891EDCF00064C67 /* tabBar-camera@2x.png */,
 				AB4947161891AF5000110650 /* XHPagesContainer-Info.plist */,
 				AB4947171891AF5000110650 /* InfoPlist.strings */,
 				AB49471A1891AF5000110650 /* main.m */,
@@ -163,9 +184,23 @@
 				AB4947481891AF8C00110650 /* XHPagesContainer.m */,
 				AB49474A1891B95200110650 /* XHContentTableViewController.h */,
 				AB49474B1891B95200110650 /* XHContentTableViewController.m */,
+				AB65E6E21891ECF600064C67 /* XHItemScrollToolBar */,
 			);
 			name = Source;
 			path = ../Source;
+			sourceTree = "<group>";
+		};
+		AB65E6E21891ECF600064C67 /* XHItemScrollToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				AB65E6E31891ED0000064C67 /* XHItem.h */,
+				AB65E6E41891ED0000064C67 /* XHItem.m */,
+				AB65E6E51891ED0000064C67 /* XHItemScrollToolBar.h */,
+				AB65E6E61891ED0000064C67 /* XHItemScrollToolBar.m */,
+				AB65E6E71891ED0000064C67 /* XHItemView.h */,
+				AB65E6E81891ED0000064C67 /* XHItemView.m */,
+			);
+			name = XHItemScrollToolBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,8 +279,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB65E6F11891EDCF00064C67 /* tabBar-camera-on@2x.png in Resources */,
+				AB65E6F21891EDCF00064C67 /* tabBar-camera.png in Resources */,
 				AB49472A1891AF5000110650 /* Images.xcassets in Resources */,
+				AB65E6F31891EDCF00064C67 /* tabBar-camera@2x.png in Resources */,
 				AB4947191891AF5000110650 /* InfoPlist.strings in Resources */,
+				AB65E6F01891EDCF00064C67 /* tabBar-camera-on.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,8 +303,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB65E6E91891ED0000064C67 /* XHItem.m in Sources */,
+				AB65E6EB1891ED0000064C67 /* XHItemView.m in Sources */,
 				AB49474C1891B95200110650 /* XHContentTableViewController.m in Sources */,
 				AB4947491891AF8C00110650 /* XHPagesContainer.m in Sources */,
+				AB65E6EA1891ED0000064C67 /* XHItemScrollToolBar.m in Sources */,
 				AB4947281891AF5000110650 /* ViewController.m in Sources */,
 				AB49471F1891AF5000110650 /* AppDelegate.m in Sources */,
 				AB49471B1891AF5000110650 /* main.m in Sources */,
