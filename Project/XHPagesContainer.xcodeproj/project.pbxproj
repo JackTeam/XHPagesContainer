@@ -30,6 +30,8 @@
 		AB65E6F21891EDCF00064C67 /* tabBar-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = AB65E6EE1891EDCF00064C67 /* tabBar-camera.png */; };
 		AB65E6F31891EDCF00064C67 /* tabBar-camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB65E6EF1891EDCF00064C67 /* tabBar-camera@2x.png */; };
 		AB65E6F71891EE8300064C67 /* XHFoundCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = AB65E6F61891EE8300064C67 /* XHFoundCommon.m */; };
+		CBDBDB4F18A9CF920047EBB7 /* XHPagesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBDBDB4E18A9CF920047EBB7 /* XHPagesScrollView.m */; };
+		CBDBDB5218A9D0640047EBB7 /* XHPageContentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBDBDB5118A9D0640047EBB7 /* XHPageContentTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,10 @@
 		AB65E6EF1891EDCF00064C67 /* tabBar-camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar-camera@2x.png"; sourceTree = "<group>"; };
 		AB65E6F51891EE8200064C67 /* XHFoundCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHFoundCommon.h; sourceTree = "<group>"; };
 		AB65E6F61891EE8300064C67 /* XHFoundCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHFoundCommon.m; sourceTree = "<group>"; };
+		CBDBDB4D18A9CF920047EBB7 /* XHPagesScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPagesScrollView.h; sourceTree = "<group>"; };
+		CBDBDB4E18A9CF920047EBB7 /* XHPagesScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPagesScrollView.m; sourceTree = "<group>"; };
+		CBDBDB5018A9D0640047EBB7 /* XHPageContentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPageContentTableView.h; sourceTree = "<group>"; };
+		CBDBDB5118A9D0640047EBB7 /* XHPageContentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPageContentTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +191,10 @@
 			children = (
 				AB4947471891AF8C00110650 /* XHPagesContainer.h */,
 				AB4947481891AF8C00110650 /* XHPagesContainer.m */,
+				CBDBDB4D18A9CF920047EBB7 /* XHPagesScrollView.h */,
+				CBDBDB4E18A9CF920047EBB7 /* XHPagesScrollView.m */,
+				CBDBDB5018A9D0640047EBB7 /* XHPageContentTableView.h */,
+				CBDBDB5118A9D0640047EBB7 /* XHPageContentTableView.m */,
 				AB49474A1891B95200110650 /* XHContentTableViewController.h */,
 				AB49474B1891B95200110650 /* XHContentTableViewController.m */,
 				AB65E6F41891EE6200064C67 /* XHFoundCommon */,
@@ -316,6 +326,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBDBDB5218A9D0640047EBB7 /* XHPageContentTableView.m in Sources */,
+				CBDBDB4F18A9CF920047EBB7 /* XHPagesScrollView.m in Sources */,
 				AB65E6E91891ED0000064C67 /* XHItem.m in Sources */,
 				AB65E6F71891EE8300064C67 /* XHFoundCommon.m in Sources */,
 				AB65E6EB1891ED0000064C67 /* XHItemView.m in Sources */,

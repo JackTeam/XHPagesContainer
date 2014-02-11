@@ -9,15 +9,17 @@
 // That's a test. It means nothing.
 
 #import "XHPagesContainer.h"
+#import "XHPagesScrollView.h"
 #import "XHContentTableViewController.h"
-
 #import "XHItemScrollToolBar.h"
-
 #import "XHFoundCommon.h"
+
+static const NSInteger totalSupportedPageNumber = 5;  // 最大支持可复用的子table view数
+static const NSInteger initLoadingPageNumber = 3;     // 初始化时支持的table view数
 
 @interface XHPagesContainer () <UIScrollViewDelegate>
 
-@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) XHPagesScrollView *scrollView;
 
 @end
 
@@ -26,7 +28,7 @@
 #pragma mark - Setup UI
 
 - (void)_setupContainer {
-    _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    _scrollView = [[XHPagesScrollView alloc] initWithFrame:self.view.bounds];
     _scrollView.delegate = self;
     _scrollView.pagingEnabled = YES;
     _scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.bounds) * 3, CGRectGetHeight(self.view.bounds));
@@ -93,20 +95,29 @@
 
 #pragma mark - UIScrollView delegate
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    // 刚开始滑动
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    
 }
 
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    // 滑动后，刚开始松手
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    // 正在滚动
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
 }
 
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    // 这里可以对scrollView刚松手的其他参数
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    
 }
 
 @end
