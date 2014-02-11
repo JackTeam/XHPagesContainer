@@ -1,5 +1,5 @@
 //
-//  XHPageContentView.m
+//  XHPageContentTableView.m
 //  XHPagesContainer
 //
 //  Created by Tu You on 14-2-11.
