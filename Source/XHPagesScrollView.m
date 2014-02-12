@@ -20,6 +20,11 @@
     return self;
 }
 
+- (void)commonInit
+{
+    
+}
+
 - (XHPageContentTableView *)deqeuePageWithIdentifier:(NSString *)identifier
 {
     return nil;

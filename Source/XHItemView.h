@@ -11,7 +11,10 @@
 #import "XHItem.h"
 
 @interface XHItemView : UIButton
+
 @property (nonatomic, readonly) XHItem *item;
+
 - (instancetype)initWithFrame:(CGRect)frame item:(XHItem *)item;
+- (void)setColor:(UIColor *)color;
 
 @end

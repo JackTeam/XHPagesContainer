@@ -7,18 +7,22 @@
 //
 
 #import "XHItem.h"
+
 @interface XHItem ()
+
 @property (nonatomic, readwrite) UIImage *selectedImage;
 @property (nonatomic, readwrite) UIImage *normalImage;
-@property (nonatomic, readwrite) NSString *title;
 @property (nonatomic, readwrite) XHItemSelectedBlcok itemSelectedCompled;
 
 @end
 
 @implementation XHItem
-- (instancetype)initWithNormalImage:(UIImage *)normalImage selectedImage:(UIImage *)selectedImage title:(NSString *)title itemSelectedBlcok:(XHItemSelectedBlcok)itemSelectedCompled {
+
+- (instancetype)initWithNormalImage:(UIImage *)normalImage selectedImage:(UIImage *)selectedImage title:(NSString *)title itemSelectedBlcok:(XHItemSelectedBlcok)itemSelectedCompled
+{
     self = [super init];
-    if (self ) {
+    if (self)
+    {
         self.normalImage = normalImage;
         self.selectedImage = selectedImage;
         self.title = title;
@@ -27,7 +31,8 @@
     return self;
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
     self.selectedImage = nil;
     self.normalImage = nil;
     self.title = nil;

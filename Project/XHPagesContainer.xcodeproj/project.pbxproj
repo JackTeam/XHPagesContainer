@@ -32,6 +32,7 @@
 		AB65E6F71891EE8300064C67 /* XHFoundCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = AB65E6F61891EE8300064C67 /* XHFoundCommon.m */; };
 		CBDBDB4F18A9CF920047EBB7 /* XHPagesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBDBDB4E18A9CF920047EBB7 /* XHPagesScrollView.m */; };
 		CBDBDB5218A9D0640047EBB7 /* XHPageContentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBDBDB5118A9D0640047EBB7 /* XHPageContentTableView.m */; };
+		CBFA14DC18AA820100A8D769 /* XHPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBFA14DB18AA820100A8D769 /* XHPageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		CBDBDB4E18A9CF920047EBB7 /* XHPagesScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPagesScrollView.m; sourceTree = "<group>"; };
 		CBDBDB5018A9D0640047EBB7 /* XHPageContentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPageContentTableView.h; sourceTree = "<group>"; };
 		CBDBDB5118A9D0640047EBB7 /* XHPageContentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPageContentTableView.m; sourceTree = "<group>"; };
+		CBFA14DA18AA820100A8D769 /* XHPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPageView.h; sourceTree = "<group>"; };
+		CBFA14DB18AA820100A8D769 /* XHPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +196,8 @@
 				AB4947481891AF8C00110650 /* XHPagesContainer.m */,
 				CBDBDB4D18A9CF920047EBB7 /* XHPagesScrollView.h */,
 				CBDBDB4E18A9CF920047EBB7 /* XHPagesScrollView.m */,
+				CBFA14DA18AA820100A8D769 /* XHPageView.h */,
+				CBFA14DB18AA820100A8D769 /* XHPageView.m */,
 				CBDBDB5018A9D0640047EBB7 /* XHPageContentTableView.h */,
 				CBDBDB5118A9D0640047EBB7 /* XHPageContentTableView.m */,
 				AB49474A1891B95200110650 /* XHContentTableViewController.h */,
@@ -337,6 +342,7 @@
 				AB4947281891AF5000110650 /* ViewController.m in Sources */,
 				AB49471F1891AF5000110650 /* AppDelegate.m in Sources */,
 				AB49471B1891AF5000110650 /* main.m in Sources */,
+				CBFA14DC18AA820100A8D769 /* XHPageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

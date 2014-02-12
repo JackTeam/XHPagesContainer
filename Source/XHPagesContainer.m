@@ -6,18 +6,19 @@
 //  Copyright (c) 2014年 曾宪华 开发团队(http://iyilunba.com ) 本人QQ:543413507 本人QQ群（142557668）. All rights reserved.
 //
 
-// That's a test. It means nothing.
-
 #import "XHPagesContainer.h"
 #import "XHPagesScrollView.h"
 #import "XHContentTableViewController.h"
 #import "XHItemScrollToolBar.h"
 #import "XHFoundCommon.h"
+#import "XHPageView.h"
 
 static const NSInteger totalSupportedPageNumber = 5;  // 最大支持可复用的子table view数
 static const NSInteger initLoadingPageNumber = 3;     // 初始化时支持的table view数
 
-@interface XHPagesContainer () <UIScrollViewDelegate>
+static const NSInteger initPageTag = 1001;    // 初始页面tag值
+
+@interface XHPagesContainer () <UIScrollViewDelegate, XHPageViewDelegate>
 
 @property (nonatomic, strong) XHPagesScrollView *scrollView;
 
@@ -111,6 +112,16 @@ static const NSInteger initLoadingPageNumber = 3;     // 初始化时支持的ta
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    // load pages
+    
+    NSInteger page = (int)scrollView.contentOffset.x / scrollView.bounds.size.width;
+    
+    [self loadPagesAtIndex:page];
+    
+}
+
+- (void)loadPagesAtIndex:(NSInteger)index
 {
     
 }

@@ -19,6 +19,9 @@
 @property (nonatomic, assign) CGFloat itemPaddingY;
 @property (nonatomic, assign) NSInteger selectIndex;
 @property (nonatomic, strong) UIImage *indicatorImage;
+
+
+- (instancetype)initWithItems:(NSArray *)items;
 - (void)reloadData;
 
 @end

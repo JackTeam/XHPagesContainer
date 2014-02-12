@@ -8,8 +8,14 @@
 
 #import "XHItemView.h"
 
+#define kDefaultBottomLineColor [UIColor redColor]
+
 @interface XHItemView ()
+
 @property (nonatomic, strong) XHItem *item;
+@property (nonatomic, strong) UIView *bottomLine;
+@property (nonatomic, strong) UILabel *contentLabel;
+
 @end
 
 @implementation XHItemView
@@ -17,25 +23,40 @@
 - (instancetype)initWithFrame:(CGRect)frame item:(XHItem *)item {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        
+        [self commonInit];
+        
         self.item = item;
-        if (item.normalImage)
-            [self setImage:item.normalImage forState:UIControlStateNormal];
-        if (item.selectedImage)
-            [self setImage:item.selectedImage forState:UIControlStateSelected];
-        if (item.title)
-            [self setTitle:item.title forState:UIControlStateNormal];
+        
+        [self setupItem];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)commonInit
 {
-    // Drawing code
+    self.bottomLine = [[UIView alloc] initWithFrame:CGRectMake(2, CGRectGetHeight(self.frame) - 8, CGRectGetWidth(self.frame) - 4, 1)];
+    self.bottomLine.backgroundColor = kDefaultBottomLineColor;
+    [self addSubview:self.bottomLine];
+    
+    self.contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
+    self.contentLabel.font = [UIFont systemFontOfSize:12];          
+    self.contentLabel.backgroundColor = [UIColor clearColor];
+    self.contentLabel.textAlignment = NSTextAlignmentCenter;
+    self.contentLabel.textColor = kDefaultBottomLineColor;
+    [self addSubview:self.contentLabel];
+    
 }
-*/
+
+- (void)setupItem
+{
+    self.contentLabel.text = self.item.title;
+}
+
+- (void)setColor:(UIColor *)color
+{
+    self.contentLabel.textColor = color;
+    self.bottomLine.backgroundColor = color;
+}
 
 @end

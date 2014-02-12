@@ -7,7 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XHPageContentTableView.h"
+
+@protocol XHPagesScrollViewDeleate
+
+- (NSInteger)numberOfPagesInScrollView;
+
+@end
+
+@protocol XHPagesScrollViewDataSource
+
+
+
+@end
+
 
 @interface XHPagesScrollView : UIScrollView
+
+@property (nonatomic, strong) NSString *placeholderImage; // 空数据占位符图
+
+
+- (XHPageContentTableView *)deqeuePageWithIdentifier:(NSString *)identifier;
 
 @end

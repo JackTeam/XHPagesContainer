@@ -46,13 +46,17 @@
     [self _layoutSubviews];
 }
 
-#pragma mark - previte Api
+#pragma mark - Private Api
 
-- (void)_layoutSubviews {
+- (void)_layoutSubviews
+{
     NSMutableArray *itemVies = [[NSMutableArray alloc] initWithCapacity:5];
-    for (XHItem *item in self.items) {
+    
+    for (XHItem *item in self.items)
+    {
         NSInteger index = [self.items indexOfObject:item];
         item.index = index;
+        item.title = [NSString stringWithFormat:@"coloum %ld", (long)index];
         CGRect bottomItemFrame = CGRectMake(index * (self.itemWidth + self.itemPaddingX) + self.itemPaddingX, self.itemPaddingY, self.itemWidth, CGRectGetHeight(self.bounds) - self.itemPaddingY * 2);
         XHItemView *itemView = [[XHItemView alloc] initWithFrame:bottomItemFrame item:item];
         if (index == self.selectIndex) {
