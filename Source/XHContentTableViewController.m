@@ -14,7 +14,8 @@
 
 @implementation XHContentTableViewController
 
-- (void)_setupTableView {
+- (void)setupTableView
+{
     CGRect tableViewFrame = self.view.bounds;
     UITableView *tableView = [[UITableView alloc] initWithFrame:tableViewFrame style:UITableViewStylePlain];
     tableView.delegate = self;
@@ -29,14 +30,15 @@
 
 #pragma mark - Life cycle
 
-- (void)_setup {
+- (void)setup {
     
 }
 
 - (id)init {
     self = [super init];
-    if (self) {
-        [self _setup];
+    if (self)
+    {
+        [self setup];
     }
     return self;
 }
@@ -65,7 +67,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self _setupTableView];
+    [self setupTableView];
 }
 
 - (void)didReceiveMemoryWarning

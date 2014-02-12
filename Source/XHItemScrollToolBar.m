@@ -11,30 +11,29 @@
 @interface XHItemScrollToolBar ()
 
 @property (nonatomic, strong) NSArray *itemViews;
+@property (nonatomic, strong) UIView *indicatorImageView;
 
-@property (nonatomic, strong) UIImageView *indicatorImageView;
 @end
 
 @implementation XHItemScrollToolBar
 
-#pragma mark - Propertys
+#pragma mark - Properties
 
-- (NSArray *)itemViews {
-    if (!_itemViews) {
+- (NSArray *)itemViews
+{
+    if (!_itemViews)
+    {
         _itemViews = [[NSArray alloc] init];
     }
     return _itemViews;
 }
 
-- (void)setItems:(NSArray *)items {
-    if (!items)
-        return;
-    _items = items;
-}
-
-- (UIImageView *)indicatorImageView {
-    if (!_indicatorImageView) {
-        _indicatorImageView = [[UIImageView alloc] initWithImage:self.indicatorImage];
+- (UIView *)indicatorImageView
+{
+    if (!_indicatorImageView)
+    {
+        _indicatorImageView = [[UIView alloc] initWithFrame:CGRectMake(2, CGRectGetHeight(self.frame) - 8, CGRectGetWidth(self.frame) - 4, 1)];
+        _indicatorImageView.backgroundColor = [UIColor redColor];
         [self addSubview:_indicatorImageView];
     }
     return _indicatorImageView;

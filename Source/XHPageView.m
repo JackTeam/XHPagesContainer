@@ -24,6 +24,12 @@
     return self;
 }
 
+- (void)loadPageContent
+{
+    [self.tableView reloadData];    
+}
+
+
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

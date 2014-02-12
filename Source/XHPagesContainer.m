@@ -13,14 +13,16 @@
 #import "XHFoundationCommon.h"
 #import "XHPageView.h"
 
-static const NSInteger totalSupportedPageNumber = 5;  // 最大支持可复用的子table view数
-static const NSInteger initLoadingPageNumber = 3;     // 初始化时支持的table view数
-
-static const NSInteger initPageTag = 1001;    // 初始页面tag值
+static const NSInteger kTotalSupportedPageNumber = 5;  // 最大支持可复用的子table view数
+static const NSInteger kInitLoadingPageNumber = 3;     // 初始化时支持的table view数
+static const NSInteger kTotalPageNumber = 10;         // table view总页数
+static const NSInteger kInitPageTag = 1001;    // 初始页面tag值
 
 @interface XHPagesContainer () <UIScrollViewDelegate, XHPageViewDelegate>
 
 @property (nonatomic, strong) XHPagesScrollView *scrollView;
+
+@property (nonatomic, strong) NSMutableArray *recycledPageViews;
 
 @end
 
@@ -28,13 +30,16 @@ static const NSInteger initPageTag = 1001;    // 初始页面tag值
 
 #pragma mark - Setup UI
 
-- (void)_setupContainer {
+- (void)setupContainer
+{
     _scrollView = [[XHPagesScrollView alloc] initWithFrame:self.view.bounds];
     _scrollView.delegate = self;
     _scrollView.pagingEnabled = YES;
     _scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.bounds) * 3, CGRectGetHeight(self.view.bounds));
     [_scrollView setScrollsToTop:NO];
-    for (int i = 0; i < 3; i ++) {
+    
+    for (int i = 0; i < 3; i ++)
+    {
         CGRect contentTableViewControllerFrame = CGRectMake(i * CGRectGetWidth(self.view.bounds), 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
         XHContentTableViewController *contentTableViewController = [[XHContentTableViewController alloc] init];
         contentTableViewController.tableViewContenInsetTop = kXHItemScrollToolBarHeight + [XHFoundationCommon getAdapterHeight];
@@ -47,10 +52,13 @@ static const NSInteger initPageTag = 1001;    // 初始页面tag值
     [self.view addSubview:self.scrollView];
 }
 
-- (void)_setupTopScrollBar {
+- (void)setupTopScrollBar
+{
     NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:5];
-    for (int i = 0; i < 10; i ++) {
-        XHItem *item = [[XHItem alloc] initWithNormalImage:[UIImage imageNamed:@"tabBar-camera"] selectedImage:[UIImage imageNamed:@"tabBar-camera-on"] title:@"title5" itemSelectedBlcok:^(XHItemView *itemView) {
+    for (int i = 0; i < 10; i ++)
+    {
+        XHItem *item = [[XHItem alloc] initWithNormalImage:[UIImage imageNamed:@"tabBar-camera"] selectedImage:[UIImage imageNamed:@"tabBar-camera-on"] title:@"title5" itemSelectedBlcok:^(XHItemView *itemView)
+        {
             NSInteger index = itemView.item.index;
             NSLog(@"index : %d", index);
         }];
@@ -66,14 +74,17 @@ static const NSInteger initPageTag = 1001;    // 初始页面tag值
 
 #pragma mark - Life cycle
 
-- (void)_setup {
+- (void)setup
+{
     
 }
 
-- (id)init {
+- (id)init
+{
     self = [super init];
-    if (self) {
-        [self _setup];
+    if (self)
+    {
+        [self setup];
     }
     return self;
 }
@@ -82,10 +93,12 @@ static const NSInteger initPageTag = 1001;    // 初始页面tag值
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self _setupContainer];
-    [self _setupTopScrollBar];
+    [self setupContainer];
+    [self setupTopScrollBar];
     if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)])
+    {
         self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -115,20 +128,118 @@ static const NSInteger initPageTag = 1001;    // 初始页面tag值
 {
     // load pages
     
-    NSInteger page = (int)scrollView.contentOffset.x / scrollView.bounds.size.width;
+    NSInteger index = (int)scrollView.contentOffset.x / scrollView.bounds.size.width;
     
-    [self loadPagesAtIndex:page];
+    // load page index
+    [self loadPageAtIndex:index];
     
+    // load pre page
+    NSInteger preIndex = index - 1;
+    if (index >= 0)
+    {
+        [self loadPageAtIndex:preIndex];
+        [self visitPageAtIndex:preIndex];
+    }
+    
+    // load next page
+    NSInteger nextIndex = index + 1;
+    if (nextIndex < kTotalPageNumber)
+    {
+        [self loadPageAtIndex:nextIndex];
+        [self visitPageAtIndex:nextIndex];
+    }
+    
+    [self visitPageAtIndex:nextIndex];
 }
 
-- (void)loadPagesAtIndex:(NSInteger)index
+- (void)loadPageAtIndex:(NSInteger)index
 {
+    UIView *page = [self.scrollView viewWithTag:(kInitPageTag + index)];
     
+    if ([page isKindOfClass:[XHPageView class]])
+    {
+        return ;
+    }
+    
+    XHPageView *pageView = [self dequePage];
+
+    if (!pageView)
+    {
+        pageView = [[XHPageView alloc] init];
+        [self.recycledPageViews addObject:@(index)];
+        [self.scrollView addSubview:pageView];
+    }
+    
+    pageView.pageIndex = index;
+    pageView.tag = kInitPageTag + index;
+    pageView.frame = CGRectMake(index * CGRectGetWidth(pageView.frame), 0, CGRectGetWidth(pageView.frame), CGRectGetHeight(pageView.frame));
+    
+    // clear data of page view
+    pageView.alpha = 0.0f;
+    
+    // display page data
+    [pageView loadPageContent];
+    
+    double delayInSeconds = 0.2;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [UIView animateWithDuration:0.25 animations:^{
+            pageView.alpha = 1.0f;
+        }];
+    });
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
     
+}
+
+#pragma mark - Page View Delegate
+
+- (NSInteger)numberOfSectionsInPageView:(XHPageView *)pageView
+{
+    return 0;
+}
+
+- (NSInteger)pageView:(XHPageView *)pageView numberOfRowsInSection:(NSInteger)section
+{
+    return 0;
+}
+
+- (UITableViewCell *)pageView:(XHPageView *)pageView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
+
+- (CGFloat)pageView:(XHPageView *)pageView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44;
+}
+
+#pragma mark - Recycle Page View
+
+- (void)visitPageAtIndex:(NSInteger)pageIndex
+{
+    [self.recycledPageViews removeObject:@(pageIndex)];
+    [self.recycledPageViews addObject:@(pageIndex)];
+}
+
+- (XHPageView *)dequePage
+{
+    if (self.recycledPageViews.count < kTotalSupportedPageNumber)
+    {
+        return nil;
+    }
+    
+    int firstIndex = [[self.recycledPageViews firstObject] intValue];
+    
+    UIView *pageView = [self.scrollView viewWithTag:(firstIndex + kInitPageTag)];
+    
+    if ([pageView isKindOfClass:XHPageView.class])
+    {
+        return (XHPageView *)pageView;
+    }
+    return nil;
 }
 
 @end

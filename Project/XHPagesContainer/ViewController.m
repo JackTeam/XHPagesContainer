@@ -26,7 +26,7 @@
     button.center = self.view.center;
     [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
     [button setTitle:@"打开" forState:UIControlStateNormal];
-    [self.view addSubview:button];
+    [self.view addSubview:button];    
 }
 
 - (void)buttonClick {

@@ -13,6 +13,7 @@
 #define kXHItemScrollToolBarHeight 44
 
 @interface XHItemScrollToolBar : UIScrollView
+
 @property (nonatomic, strong) NSArray *items;
 @property (nonatomic, assign) CGFloat itemWidth;
 @property (nonatomic, assign) CGFloat itemPaddingX;

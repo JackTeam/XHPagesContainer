@@ -13,7 +13,6 @@
 @interface XHItemView ()
 
 @property (nonatomic, strong) XHItem *item;
-@property (nonatomic, strong) UIView *bottomLine;
 @property (nonatomic, strong) UILabel *contentLabel;
 
 @end
@@ -35,16 +34,14 @@
 
 - (void)commonInit
 {
-    self.bottomLine = [[UIView alloc] initWithFrame:CGRectMake(2, CGRectGetHeight(self.frame) - 8, CGRectGetWidth(self.frame) - 4, 1)];
-    self.bottomLine.backgroundColor = kDefaultBottomLineColor;
-    [self addSubview:self.bottomLine];
-    
     self.contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
     self.contentLabel.font = [UIFont systemFontOfSize:12];          
     self.contentLabel.backgroundColor = [UIColor clearColor];
     self.contentLabel.textAlignment = NSTextAlignmentCenter;
     self.contentLabel.textColor = kDefaultBottomLineColor;
     [self addSubview:self.contentLabel];
+    
+    [self addTarget:self action:@selector(itemSelected:) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
@@ -56,7 +53,14 @@
 - (void)setColor:(UIColor *)color
 {
     self.contentLabel.textColor = color;
-    self.bottomLine.backgroundColor = color;
+}
+
+- (void)itemSelected:(id)sender
+{
+    if (self.item.itemSelectedCompled)
+    {
+        self.item.itemSelectedCompled(self);
+    }
 }
 
 @end

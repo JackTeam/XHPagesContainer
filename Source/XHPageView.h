@@ -18,6 +18,7 @@
 - (NSInteger)numberOfSectionsInPageView:(XHPageView *)pageView;
 - (NSInteger)pageView:(XHPageView *)pageView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell *)pageView:(XHPageView *)pageView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (CGFloat)pageView:(XHPageView *)pageView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
@@ -28,5 +29,7 @@
 
 @property (nonatomic, assign) NSInteger pageIndex;
 @property (nonatomic, strong) XHPageContentTableView *tableView;
+
+- (void)loadPageContent;
 
 @end
