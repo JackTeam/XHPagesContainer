@@ -1,5 +1,5 @@
 //
-//  XHFoundCommon.h
+//  XHFoundationCommon.h
 //  XHPagesContainer
 //
 //  Created by 曾 宪华 on 14-1-24.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XHFoundCommon : NSObject
+@interface XHFoundationCommon : NSObject
 + (CGFloat)getAdapterHeight;
 @end
